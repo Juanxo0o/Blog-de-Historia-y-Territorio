@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🌸 Blog de Historia y Territorio 🌸</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+</head>
+<body>
+  <div class="sparkles"></div>
+  <div class="hearts"></div>
+  <div class="butterflies"></div>
+
+  <header class="main-header">
+    <div class="header-content">
+      <h1 class="blog-title">📚🌸 Blog de Historia y Territorio 🌸📚</h1>
+    </div>
+    <nav class="main-nav">
+      <ul>
+        <li><a href="#" class="active"><i class="fas fa-home"></i> Inicio</a></li>
+        <li><a href="#"><i class="fas fa-book"></i> Artículos</a></li>
+        <li><a href="#"><i class="fas fa-images"></i> Galería</a></li>
+        <li><a href="#"><i class="fas fa-calendar-alt"></i> Eventos</a></li>
+        <li><a href="#"><i class="fas fa-envelope"></i> Contacto</a></li>
+      </ul>
+      <div class="search-box">
+        <input type="text" placeholder="Buscar...">
+        <button><i class="fas fa-search"></i></button>
+      </div>
+    </nav>
+  </header>
+
+  <div class="container">
+    <main class="blog-main">
+      <section class="blog-section">
+        <div class="section-header">
+          <h2><i class="fas fa-star"></i> Destacados</h2>
+          <div class="section-controls">
+            <button class="btn-prev"><i class="fas fa-chevron-left"></i></button>
+            <button class="btn-next"><i class="fas fa-chevron-right"></i></button>
+          </div>
+        </div>
+        <div class="featured-posts">
+          <!-- Posts destacados se cargarán aquí -->
+        </div>
+      </section>
+
+      <div class="diary-container">
+        <div class="diary-tabs">
+          <button class="tab-btn active" data-tab="corte1">🎀 Corte 1</button>
+          <button class="tab-btn" data-tab="corte2">🧁 Corte 2</button>
+          <button class="tab-btn" data-tab="corte3">💖 Corte 3</button>
+        </div>
+
+        <div class="diary-content">
+          <div class="tab-content active" id="corte1">
+            <div class="upload-area">
+              <label class="cute-upload-btn">
+                <input type="file" accept="image/*" onchange="previewImage(event, 'gallery1')" multiple>
+                <i class="fas fa-cloud-upload-alt"></i> Sube tus fotos lindas
+              </label>
+              <button class="save-btn" onclick="saveImages('gallery1', 'corte1')">
+                <i class="fas fa-heart"></i> Guardar
+              </button>
+            </div>
+            <div class="gallery" id="gallery1"></div>
+          </div>
+
+          <div class="tab-content" id="corte2">
+            <div class="upload-area">
+              <label class="cute-upload-btn">
+                <input type="file" accept="image/*" onchange="previewImage(event, 'gallery2')" multiple>
+                <i class="fas fa-cloud-upload-alt"></i> Sube tus recuerdos
+              </label>
+              <button class="save-btn" onclick="saveImages('gallery2', 'corte2')">
+                <i class="fas fa-heart"></i> Guardar
+              </button>
+            </div>
+            <div class="gallery" id="gallery2"></div>
+          </div>
+
+          <div class="tab-content" id="corte3">
+            <div class="upload-area">
+              <label class="cute-upload-btn">
+                <input type="file" accept="image/*" onchange="previewImage(event, 'gallery3')" multiple>
+                <i class="fas fa-cloud-upload-alt"></i> Comparte tu creatividad
+              </label>
+              <button class="save-btn" onclick="saveImages('gallery3', 'corte3')">
+                <i class="fas fa-heart"></i> Guardar
+              </button>
+            </div>
+            <div class="gallery" id="gallery3"></div>
+          </div>
+        </div>
+      </div>
+
+      <section class="blog-section">
+        <h2><i class="fas fa-pencil-alt"></i> Nuevo Artículo</h2>
+        <div class="post-editor">
+          <input type="text" id="post-title" placeholder="Título del artículo">
+          <textarea id="post-content" placeholder="Escribe tu artículo aquí..."></textarea>
+          <div class="editor-tools">
+            <button class="tool-btn" data-command="bold"><i class="fas fa-bold"></i></button>
+            <button class="tool-btn" data-command="italic"><i class="fas fa-italic"></i></button>
+            <button class="tool-btn" data-command="insertImage"><i class="fas fa-image"></i></button>
+            <button class="tool-btn" data-command="createLink"><i class="fas fa-link"></i></button>
+          </div>
+          <button class="publish-btn" onclick="publishPost()"><i class="fas fa-paper-plane"></i> Publicar</button>
+        </div>
+      </section>
+    </main>
+
+    <aside class="blog-sidebar">
+      <div class="sidebar-widget">
+        <h3><i class="fas fa-user-circle"></i> Perfil</h3>
+        <div class="profile-card">
+  <div class="profile-pic">
+    <img src="https://i.pinimg.com/originals/78/1e/9a/781e9a8a1a82b6a797a355a95a05a9b9.png" alt="Hannah Ariza Estévez">
+  </div>
+  <h4>Hannah Ariza Estévez</h4>
+  <p>Estudiante de Historia y amante del territorio</p>
+</div>
+      <div class="sidebar-widget">
+        <h3><i class="fas fa-calendar-check"></i> Eventos</h3>
+        <div class="event-list">
+          <!-- Eventos se cargarán aquí -->
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <footer class="blog-footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4>Sobre el blog</h4>
+        <p>Un espacio para compartir avances académicos y reflexiones sobre historia y territorio.</p>
+      </div>
+      <div class="footer-section">
+        <h4>Enlaces rápidos</h4>
+        <ul>
+          <li><a href="#">Inicio</a></li>
+          <li><a href="#">Artículos</a></li>
+          <li><a href="#">Galería</a></li>
+          <li><a href="#">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Redes sociales</h4>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-pinterest"></i></a>
+          <a href="#"><i class="fab fa-tiktok"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="copyright">
+  <p>© 2023 <strong>Hannah Ariza Estévez</strong> - Todos los derechos reservados</p>
+  <p>Diseñado con 💖 y mucho esfuerzo</p>
+</div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://cdn.jsdelivr.net/npm/party-js@latest/bundle/party.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
